@@ -1,6 +1,14 @@
 <?php
-require_once 'produto.php';
-require_once 'db_connect.php';
+require_once '../pdo/produto.php';
+require_once '../database/db_connect.php';
+require_once '../pdo/User.php'; 
+
+$user = new User();
+
+if (!$user->isLoggedIn()) {
+    header('Location: /php/gestor_pro/login.php'); // Redireciona se não estiver logado
+    exit;
+}
 
 $db = new Database();
 $produto = new Produto($db);
@@ -27,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Redireciona para a página principal com mensagem de status
-    header("Location: index.php?mensagem=" . urlencode($mensagem));
+    header("Location: listarProdutos.php?mensagem=" . urlencode($mensagem));
     exit;
 }
 ?>

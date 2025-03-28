@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top    ;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+    margin-top: 30px;
+}
+
+.tableProd {
+    width: 80%;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+td button, .button button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+td button:hover, .button button:hover {
+    background-color: #218838;
+}
+
+.containerButton{
+    width: 80%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.button {
+    margin-bottom: 20px;
+    display: flex;
+
+    flex-direction: row-reverse;
+    gap: 10px;
+}
+
+.button a {
+    text-decoration: none;
+    color: white;
+}
+
+#btnGerEst{
+    background-color: rgba(0, 0, 255, 0.626);;
+}
+#btnGerEst:hover{
+    background-color: rgba(0, 0, 255);
+}
+
+/* Estilização do fundo do modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Conteúdo do modal */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    transform: scale(0.8); /* Efeito de abertura */
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Animação ao abrir */
+.modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Botão de fechar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: #e74c3c;
+}
+
+/* Título do modal */
+.modal h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Estilização dos inputs e selects */
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Botão de submissão */
+.modal-content button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #218838;
+}

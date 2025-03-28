@@ -18,6 +18,11 @@ class Database {
             die("Erro na conexão com o banco de dados: " . $e->getMessage());
         }
     }
+
+    // Método que retorna a conexão com o banco de dados
+    public function getConnection() {
+        return $this->pdo;
+    }
 }
 
 ?>

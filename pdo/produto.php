@@ -1,6 +1,6 @@
 <?php
 
-require_once 'db_connect.php'; // Importa a conexão com o banco
+require_once '../database/db_connect.php'; // Importa a conexão com o banco
 
 class Produto
 {
@@ -63,11 +63,11 @@ class Produto
             ]);
 
             // Redireciona para index com status de sucesso
-            header("Location: index.php?status=sucesso&mensagem=Produto cadastrado com sucesso!");
+            header("Location: http://127.0.0.1/php/gestor_pro/produtos/listarProdutos.php?status=sucesso&mensagem=Produto cadastrado com sucesso!");
             exit;
 
         } catch (PDOException $e) {
-            header("Location: index.php?status=erro&mensagem=Erro ao cadastrar produto: " . urlencode($e->getMessage()));
+            header("Location: http://127.0.0.1/php/gestor_pro/produtos/listarProdutos.php?status=erro&mensagem=Erro ao cadastrar produto: " . urlencode($e->getMessage()));
             exit;
         }
     }
@@ -106,11 +106,11 @@ class Produto
             ]);
 
             // Redireciona para index com status de sucesso
-            header("Location: index.php?status=sucesso&mensagem=Produto atualizado com sucesso!");
+            header("Location: http://127.0.0.1/php/gestor_pro/produtos/listarProdutos.php?status=sucesso&mensagem=Produto atualizado com sucesso!");
             exit;
 
         } catch (PDOException $e) {
-            header("Location: index.php?status=erro&mensagem=Erro ao editar produto: " . urlencode($e->getMessage()));
+            header("Location: http://127.0.0.1/php/gestor_pro/produtos/listarProdutos.php?status=erro&mensagem=Erro ao editar produto: " . urlencode($e->getMessage()));
             exit;
         }
     }
@@ -122,10 +122,15 @@ class Produto
         try {
             $stmt = $this->pdo->prepare("DELETE FROM produto WHERE id = :id");
             $stmt->execute([':id' => $id]);
-            return "Produto deletado com sucesso!";
+            // Redireciona para index com status de sucesso
+            header("Location: http://127.0.0.1/php/gestor_pro/produtos/listarProdutos.php?status=sucesso&mensagem=Produto deletado com sucesso!");
+            exit;
         } catch (PDOException $e) {
-            return "Erro ao deletar produto: " . $e->getMessage();
+            // Redireciona para index com status de sucesso
+            header("Location: http://127.0.0.1/php/gestor_pro/produtos/listarProdutos.php?status=sucesso&mensagem=Produto atualizado com sucesso!". $e->getMessage());
+            exit;
         }
+        
     }
 
     // Aumentar estoque
