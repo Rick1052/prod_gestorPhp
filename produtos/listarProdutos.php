@@ -35,9 +35,12 @@ $produtos = $produto->listarProdutos();
 
     <div class="containerButton">
         <div class="button">
+            <a href="../logout.php"><button id="btn-logout">Sair</button></a>
+
             <button><a href="cadastrarProduto.php">Cadastrar Produto</a></button><br />
 
             <button onclick="window.location.href='exportarProdutos.php'">Exportar Produtos (TXT)</button>
+
         </div>
 
     </div>
